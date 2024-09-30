@@ -2,7 +2,7 @@
 
 Este repositorio contiene la implementación de una **aplicación de recetas de café** como maqueta funcional en Flutter. La aplicación permite a los usuarios explorar, gestionar y calificar diversas recetas de café, así como personalizar su experiencia con favoritos y preferencias.
 
-Para ver la presentación de la aplicación, hacer click en el siguiente enlace: [Presentación Coffee Time] (https://drive.google.com/file/d/1oyyn38pnrEVRmt1_dyXisGFiCmJdzNZG/view?usp=sharing)
+Para ver la presentación de la aplicación, hacer click en el siguiente enlace: https://drive.google.com/file/d/1oyyn38pnrEVRmt1_dyXisGFiCmJdzNZG/view?usp=sharing
 
 ## Objetivos del proyecto
 - Desarrollar una interfaz de usuario atractiva y funcional para aficionados y baristas.
