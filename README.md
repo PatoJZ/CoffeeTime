@@ -41,58 +41,49 @@ classDiagram
         +List~String~ ingredientes
         +List~String~ metodosPreparacion
         +String descripcion
-        +Usuario usuarioCreador
     }
-    
+
     class Usuario {
         +String nombre
         +List~String~ metodosPreferidos
         +List~String~ tiposCafePreferidos
         +List~Receta~ recetasFavoritas
-        +List~Usuario~ amigos
         +void actualizarPreferencias(List~String~ metodos, List~String~ tiposCafe)
     }
 
     class AddRecipeScreen {
-        +TextField _nameController
-        +TextField _ingredientsController
-        +TextField _descriptionController
-        +TextField _newIngredientController
-        +List~String~ _metodosDisponibles
-        +List~String~ _ingredientesComunes
+        +TextEditingController _nameController
+        +TextEditingController _ingredientsController
+        +TextEditingController _descriptionController
         +List~String~ _metodosSeleccionados
         +List~String~ _ingredientesSeleccionados
+        +void onRecipeAdded(Receta receta)
     }
 
     class RecipeCardWidget {
         +Receta receta
         +bool isFavorite
-        +Function(Receta) onFavoriteToggle
-        +Function(Receta) onRate
+        +void onFavoriteToggle(Receta receta)
+        +void onRate(Receta receta, int rating)
     }
-    
+
     class UserSettingsScreen {
         +Usuario usuario
-        +List~String~ _metodosDisponibles
-        +List~String~ _tiposCafeDisponibles
         +List~String~ _metodosSeleccionados
         +List~String~ _tiposCafeSeleccionados
+        +void actualizarPreferencias()
     }
 
     class MainMenu {
         +List~Receta~ _recetas
         +List~Receta~ _favoritos
-        +int _selectedIndex
         +void _toggleFavorite(Receta receta)
         +void _addRecipe(Receta receta)
     }
 
-    Receta --> Usuario : usuarioCreador
-    Usuario "1" --> "*" Receta : recetasFavoritas
-    Usuario "1" --> "*" Usuario : amigos
+    Receta --> Usuario : recetasFavoritas
     MainMenu --> Receta : _recetas
     MainMenu --> Receta : _favoritos
-    MainMenu --> RecipeCardWidget
     AddRecipeScreen --> Receta : onRecipeAdded
     RecipeCardWidget --> Receta : receta
     UserSettingsScreen --> Usuario : usuario
