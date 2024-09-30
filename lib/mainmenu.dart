@@ -1,12 +1,13 @@
 import 'package:coffeetime/clases.dart';
 import 'package:coffeetime/explorescreen.dart';
 import 'package:coffeetime/favoritescreen.dart';
-import 'package:coffeetime/ratingbar.dart';
 import 'package:coffeetime/recipecardwidget.dart';
 import 'package:coffeetime/usersettings.dart';
 import 'package:flutter/material.dart';
 
 import 'addrecipescreen.dart';
+
+final Usuario usuarioActual = Usuario('John Doe');
 
 class MainMenu extends StatefulWidget {
   const MainMenu({super.key});
@@ -19,9 +20,16 @@ class _MainMenuState extends State<MainMenu> {
   int _selectedIndex = 0;
 
   final List<Receta> _recetas = [
-    Receta('Café Espresso', ['Café', 'Agua'], Usuario('Usuario 1'), 'Un café fuerte y concentrado.'),
-    Receta('Latte Vainilla', ['Café', 'Leche', 'Vainilla'], Usuario('Usuario 2'), 'Suave y dulce, con un toque de vainilla.'),
-    Receta('Cold Brew', ['Café', 'Agua fría'], Usuario('Usuario 3'), 'Café frío, ideal para el verano.'),
+    Receta('Café Espresso', ['Café', 'Agua'], Usuario('Usuario 1'),
+        'Un café fuerte y concentrado.', ['Espresso']),
+    Receta(
+        'Latte Vainilla',
+        ['Café', 'Leche', 'Vainilla'],
+        Usuario('Usuario 2'),
+        'Suave y dulce, con un toque de vainilla.',
+        ['Espresso']),
+    Receta('Cold Brew', ['Café', 'Agua fría'], Usuario('Usuario 3'),
+        'Café frío, ideal para el verano.', ['Espresso']),
   ];
 
   final List<Receta> _favoritos = [];
@@ -48,31 +56,43 @@ class _MainMenuState extends State<MainMenu> {
       appBar: AppBar(
         title: const Text(
           'Coffee Time',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color:Color.fromARGB(255, 255, 255, 255)),
-
+          style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Color.fromARGB(255, 255, 255, 255)),
         ),
         centerTitle: true,
         backgroundColor: const Color(0xFF6C4E31),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const UserSettingsScreen()),
-              );
-            },
-          ),
-        ],
+        leading: IconButton(
+          icon: const Icon(Icons.person),
+          color: const Color(0xFFFFEAC5),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      UserSettingsScreen(usuario: usuarioActual)),
+            );
+          },
+        ),
       ),
       body: IndexedStack(
         index: _selectedIndex,
         children: [
-          HomeScreen(recetas: _recetas, onFavoriteToggle: _toggleFavorite, favoritos: _favoritos, onRate: (Receta ) {  },),
+          HomeScreen(
+            recetas: _recetas,
+            onFavoriteToggle: _toggleFavorite,
+            favoritos: _favoritos,
+            onRate: (Receta) {},
+          ),
           const ExploreScreen(),
           AddRecipeScreen(onRecipeAdded: _addRecipe),
-          FavoriteScreen(favoritos: _favoritos, onFavoriteToggle: _toggleFavorite, onRate: (Receta ) {  },),
-          const UserSettingsScreen(),
+          FavoriteScreen(
+            favoritos: _favoritos,
+            onFavoriteToggle: _toggleFavorite,
+            onRate: (Receta) {},
+          ),
+          UserSettingsScreen(usuario: usuarioActual),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -94,10 +114,6 @@ class _MainMenuState extends State<MainMenu> {
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
             label: 'Favoritos',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Usuario',
           ),
         ],
         currentIndex: _selectedIndex,
@@ -130,19 +146,37 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: recetas.length,
-      itemBuilder: (context, index) {
-        final receta = recetas[index];
-        final isFavorite = favoritos.contains(receta);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start, // Alinear a la izquierda
+      children: [
+        const Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Text(
+            'Recetas recomendadas del día', // Título
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF6C4E31),
+            ),
+          ),
+        ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: recetas.length,
+            itemBuilder: (context, index) {
+              final receta = recetas[index];
+              final isFavorite = favoritos.contains(receta);
 
-        return RecipeCardWidget(
-          receta: receta,
-          isFavorite: isFavorite,
-          onFavoriteToggle: onFavoriteToggle,
-          onRate: onRate,
-        );
-      },
+              return RecipeCardWidget(
+                receta: receta,
+                isFavorite: isFavorite,
+                onFavoriteToggle: onFavoriteToggle,
+                onRate: onRate,
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }

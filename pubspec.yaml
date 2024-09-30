@@ -30,13 +30,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   flutter_svg: ^2.0.10+1
   logger: ^2.4.0
+  
 
 dev_dependencies:
   flutter_test:
@@ -61,9 +62,9 @@ flutter:
   uses-material-design: true
 
   assets:
-     - assets/icons/8664845_face_grin_tongue_icon.svg
-     - assets/icons/7727475_gold cup_award_success_first_victory_icon.svg
-     - assets/icons/7631427_status_error_alert_alarm_icon.svg
+     - assets/icons/1667812423coffee-shop-logo-concept.svg
+     - assets/icons/coffee-cup-svgrepo-com.svg
+     
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -81,6 +82,12 @@ flutter:
     - family: Lonely
       fonts:
       - asset: assets/fonts/LonelyCake.ttf
+    - family: Chirk
+      fonts:
+      - asset: assets/fonts/Quirk Chick.ttf
+    - family: fall
+      fonts:
+      - asset: assets/fonts/Ready For Fall.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

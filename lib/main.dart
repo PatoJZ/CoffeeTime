@@ -1,4 +1,4 @@
-import 'package:coffeetime/loginscreen.dart';
+import 'package:coffeetime/splashscreen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Café Recetas',
       theme: ThemeData(
-        fontFamily: "Lonely",
+        fontFamily: "fall",
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.brown),
         useMaterial3: true,
       ),
-      home: const LoginScreen(),  // Cambiamos la pantalla inicial al MainMenu
+      home: const SplashScreen(),  // Cambiamos la pantalla inicial al MainMenu
     );
   }
 }

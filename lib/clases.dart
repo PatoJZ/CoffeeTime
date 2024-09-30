@@ -4,30 +4,25 @@ class Receta {
   final List<String> ingredientes;
   final Usuario usuario;
   final String descripcion;
+  final List<String> metodosPreparacion; // Métodos de preparación añadidos
 
-  Receta(this.nombre, this.ingredientes, this.usuario, this.descripcion);
+  Receta(this.nombre, this.ingredientes, this.usuario, this.descripcion, this.metodosPreparacion);
 }
 
 // Clase Usuario
 class Usuario {
-  String nombre;
-  List<Usuario> amigos = [];
-  List<Receta> listaRecetas = [];
-  List<Receta> recetasFavoritas = [];
-  List<Producto> listaProductos = [];
+  final String nombre;
+  List<String> metodosPreferidos = [];
+  List<String> tiposCafePreferidos = [];
 
   Usuario(this.nombre);
 
-  void calificar(Receta receta, int calificacion) {
-    // Lógica para calificar una receta
-  }
-
-  void anadirFavorito(Receta receta) {
-    recetasFavoritas.add(receta);
-  }
-
-  String getNombre() {
-    return nombre;
+  void actualizarPreferencias({
+    required List<String> metodos,
+    required List<String> tiposCafe,
+  }) {
+    metodosPreferidos = metodos;
+    tiposCafePreferidos = tiposCafe;
   }
 }
 

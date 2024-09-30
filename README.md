@@ -39,13 +39,60 @@ classDiagram
     class Receta {
         +String nombre
         +List~String~ ingredientes
+        +List~String~ metodosPreparacion
         +String descripcion
         +Usuario usuarioCreador
     }
+    
     class Usuario {
         +String nombre
+        +List~String~ metodosPreferidos
+        +List~String~ tiposCafePreferidos
         +List~Receta~ recetasFavoritas
-        +void calificar(Receta, int)
+        +List~Usuario~ amigos
+        +void actualizarPreferencias(List~String~ metodos, List~String~ tiposCafe)
     }
-    Receta --> Usuario
 
+    class AddRecipeScreen {
+        +TextField _nameController
+        +TextField _ingredientsController
+        +TextField _descriptionController
+        +TextField _newIngredientController
+        +List~String~ _metodosDisponibles
+        +List~String~ _ingredientesComunes
+        +List~String~ _metodosSeleccionados
+        +List~String~ _ingredientesSeleccionados
+    }
+
+    class RecipeCardWidget {
+        +Receta receta
+        +bool isFavorite
+        +Function(Receta) onFavoriteToggle
+        +Function(Receta) onRate
+    }
+    
+    class UserSettingsScreen {
+        +Usuario usuario
+        +List~String~ _metodosDisponibles
+        +List~String~ _tiposCafeDisponibles
+        +List~String~ _metodosSeleccionados
+        +List~String~ _tiposCafeSeleccionados
+    }
+
+    class MainMenu {
+        +List~Receta~ _recetas
+        +List~Receta~ _favoritos
+        +int _selectedIndex
+        +void _toggleFavorite(Receta receta)
+        +void _addRecipe(Receta receta)
+    }
+
+    Receta --> Usuario : usuarioCreador
+    Usuario "1" --> "*" Receta : recetasFavoritas
+    Usuario "1" --> "*" Usuario : amigos
+    MainMenu --> Receta : _recetas
+    MainMenu --> Receta : _favoritos
+    MainMenu --> RecipeCardWidget
+    AddRecipeScreen --> Receta : onRecipeAdded
+    RecipeCardWidget --> Receta : receta
+    UserSettingsScreen --> Usuario : usuario

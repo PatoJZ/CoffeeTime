@@ -9,12 +9,12 @@ class RecipeCardWidget extends StatelessWidget {
   final Function(Receta) onRate;
 
   const RecipeCardWidget({
-    super.key,
+    Key? key,
     required this.receta,
     required this.isFavorite,
     required this.onFavoriteToggle,
     required this.onRate,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +57,22 @@ class RecipeCardWidget extends StatelessWidget {
                   style: const TextStyle(color: Color(0xFF603F26)),
                 ),
                 const SizedBox(height: 10),
+                const Text(
+                  "Métodos de Preparación:",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 10),
+                Column(
+                  children: receta.metodosPreparacion.map((String metodo) {
+                    return ElevatedButton(
+                      onPressed: () {
+                        // Aquí puedes manejar la selección del método
+                        print('Método seleccionado: $metodo');
+                      },
+                      child: Text(metodo),
+                    );
+                  }).toList(),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
