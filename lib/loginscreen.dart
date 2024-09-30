@@ -1,4 +1,4 @@
-import 'package:coffeetime/splashscreen.dart';
+import 'package:coffeetime/mainmenu.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -36,7 +36,7 @@ class LoginScreen extends StatelessWidget {
                 // Navega a la pantalla de splashscreen luego del login
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const SplashScreen()),
+                  MaterialPageRoute(builder: (context) => const MainMenu()),
                 );
               },
               child: const Text('Iniciar Sesión'),

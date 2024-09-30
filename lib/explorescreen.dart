@@ -155,7 +155,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
 
   List<Receta> _recetasFiltradas = [];
-  String _query = '';
   final List<Receta> _favoritos = [];
 
   @override
@@ -166,7 +165,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
 
   void _actualizarFiltro(String query) {
     setState(() {
-      _query = query;
       _recetasFiltradas = _todasRecetas
           .where((receta) => receta.nombre.toLowerCase().contains(query.toLowerCase()))
           .toList();
