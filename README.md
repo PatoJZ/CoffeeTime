@@ -81,9 +81,9 @@ classDiagram
         +void _addRecipe(Receta receta)
     }
 
-    Receta --> Usuario : recetasFavoritas
-    MainMenu --> Receta : _recetas
-    MainMenu --> Receta : _favoritos
-    AddRecipeScreen --> Receta : onRecipeAdded
-    RecipeCardWidget --> Receta : receta
-    UserSettingsScreen --> Usuario : usuario
+    Receta --> Usuario : 
+    MainMenu --> Receta :
+    MainMenu --> Receta : 
+    AddRecipeScreen --> Receta 
+    RecipeCardWidget --> Receta 
+    UserSettingsScreen --> Usuario 
