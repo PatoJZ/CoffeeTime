@@ -66,7 +66,7 @@ class RecipeCardWidget extends StatelessWidget {
                   children: receta.metodosPreparacion.map((String metodo) {
                     return ElevatedButton(
                       onPressed: () {
-                        // Aquí puedes manejar la selección del método
+                      
                         print('Método seleccionado: $metodo');
                       },
                       child: Text(metodo),
@@ -79,7 +79,7 @@ class RecipeCardWidget extends StatelessWidget {
                     IconButton(
                       icon: const Icon(Icons.share),
                       onPressed: () {
-                        // Lógica para compartir la receta
+                        // NO hace nada
                       },
                     ),
                     RatingBar(receta: receta),

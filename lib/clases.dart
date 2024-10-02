@@ -35,9 +35,7 @@ class Producto {
 
   Producto(this.nombre, this.id, this.precio, this.usuarioCreador);
 
-  void comprar() {
-    // Lógica para comprar el producto
-  }
+
 }
 
 // Clase Ingrediente

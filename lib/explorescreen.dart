@@ -16,63 +16,63 @@ class _ExploreScreenState extends State<ExploreScreen> {
     ['Café', 'Agua'],
     Usuario('Usuario 1'),
     'Un café suave y diluido.',
-    ['Espresso', 'French Press', 'Pour-over'], // Métodos de preparación
+    ['Espresso', 'French Press', 'Pour-over'], 
   ),
   Receta(
     'Cappuccino',
     ['Café', 'Leche', 'Espuma de leche'],
     Usuario('Usuario 2'),
     'Café con espuma y leche vaporizada.',
-    ['Espresso', 'Máquina de Cappuccino'], // Métodos de preparación
+    ['Espresso', 'Máquina de Cappuccino'], 
   ),
   Receta(
     'Latte Caramel',
     ['Café', 'Leche', 'Caramelo'],
     Usuario('Usuario 3'),
     'Un toque dulce con caramelo.',
-    ['Espresso', 'Aeropress'], // Métodos de preparación
+    ['Espresso', 'Aeropress'], 
   ),
   Receta(
     'Mocha',
     ['Café', 'Leche', 'Chocolate'],
     Usuario('Usuario 4'),
     'Café con chocolate.',
-    ['Espresso', 'Aeropress'], // Métodos de preparación
+    ['Espresso', 'Aeropress'], 
   ),
   Receta(
     'Flat White',
     ['Café', 'Leche vaporizada'],
     Usuario('Usuario 5'),
     'Una mezcla equilibrada de café y leche.',
-    ['Espresso', 'Máquina de Flat White'], // Métodos de preparación
+    ['Espresso', 'Máquina de Flat White'], 
   ),
   Receta(
     'Macchiato',
     ['Café', 'Leche'],
     Usuario('Usuario 6'),
     'Un espresso con un toque de leche.',
-    ['Espresso', 'French Press'], // Métodos de preparación
+    ['Espresso', 'French Press'], 
   ),
   Receta(
     'Café Cortado',
     ['Café', 'Leche'],
     Usuario('Usuario 7'),
     'Similar al macchiato pero con más leche.',
-    ['Espresso', 'Moka'], // Métodos de preparación
+    ['Espresso', 'Moka'], 
   ),
   Receta(
     'Affogato',
     ['Café', 'Helado de vainilla'],
     Usuario('Usuario 8'),
     'Café con helado, un postre delicioso.',
-    ['Espresso'], // Método de preparación
+    ['Espresso'], 
   ),
   Receta(
     'Irish Coffee',
     ['Café', 'Whisky', 'Azúcar', 'Crema'],
     Usuario('Usuario 9'),
     'Café con whisky y crema.',
-    ['Espresso', 'French Press'], // Métodos de preparación
+    ['Espresso', 'French Press'], 
   ),
   Receta(
     'Café Turco',
@@ -135,21 +135,21 @@ class _ExploreScreenState extends State<ExploreScreen> {
     ['Café', 'Agua'],
     Usuario('Usuario 18'),
     'Un espresso diluido con más agua.',
-    ['Espresso', 'Aeropress'], // Métodos de preparación
+    ['Espresso', 'Aeropress'], 
   ),
   Receta(
     'Café Marocchino',
     ['Café', 'Cacao', 'Leche'],
     Usuario('Usuario 19'),
     'Café con cacao y un toque de leche.',
-    ['Espresso', 'Moka'], // Métodos de preparación
+    ['Espresso', 'Moka'], 
   ),
   Receta(
     'Café Helado',
     ['Café', 'Hielo', 'Leche'],
     Usuario('Usuario 20'),
     'Café frío con leche y hielo.',
-    ['Cold Brew', 'Frappé'], // Métodos de preparación
+    ['Cold Brew', 'Frappé'], 
   ),
 ];
 

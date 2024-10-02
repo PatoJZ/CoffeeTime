@@ -33,7 +33,6 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Navega a la pantalla de splashscreen luego del login
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const MainMenu()),

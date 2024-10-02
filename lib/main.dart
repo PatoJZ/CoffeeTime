@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.brown),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),  // Cambiamos la pantalla inicial al MainMenu
+      home: const SplashScreen(), 
     );
   }
 }
